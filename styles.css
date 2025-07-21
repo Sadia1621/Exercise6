@@ -8,8 +8,20 @@ body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
     color: #333;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     min-height: 100vh;
+    transition: background 0.5s ease;
+}
+
+body {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+body.portfolio-section {
+    background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+}
+
+body.trivia-section {
+    background: linear-gradient(135deg, #fc466b 0%, #3f5efb 100%);
 }
 
 .container {
@@ -45,6 +57,22 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    transition: background 0.3s ease;
+}
+
+
+body.portfolio-section .header h1 {
+    background: linear-gradient(45deg, #11998e, #38ef7d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+body.trivia-section .header h1 {
+    background: linear-gradient(45deg, #fc466b, #3f5efb);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .navbar {
@@ -73,9 +101,24 @@ body {
 
 .navbar a:hover,
 .navbar a.active {
-    background: linear-gradient(45deg, #667eea, #764ba2);
     color: white;
     transform: translateY(-2px);
+}
+
+
+body .navbar a:hover,
+body .navbar a.active {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+}
+
+body.portfolio-section .navbar a:hover,
+body.portfolio-section .navbar a.active {
+    background: linear-gradient(45deg, #11998e, #38ef7d);
+}
+
+body.trivia-section .navbar a:hover,
+body.trivia-section .navbar a.active {
+    background: linear-gradient(45deg, #fc466b, #3f5efb);
 }
 
 .sidebar-left,
@@ -100,6 +143,18 @@ body {
 .sidebar-right h3 {
     margin-bottom: 1rem;
     color: #764ba2;
+    transition: color 0.3s ease;
+}
+
+
+body.portfolio-section .sidebar-left h3,
+body.portfolio-section .sidebar-right h3 {
+    color: #11998e;
+}
+
+body.trivia-section .sidebar-left h3,
+body.trivia-section .sidebar-right h3 {
+    color: #fc466b;
 }
 
 .sidebar-left ul {
@@ -120,6 +175,23 @@ body {
     color: #764ba2;
 }
 
+
+body.portfolio-section .sidebar-left a {
+    color: #11998e;
+}
+
+body.portfolio-section .sidebar-left a:hover {
+    color: #38ef7d;
+}
+
+body.trivia-section .sidebar-left a {
+    color: #fc466b;
+}
+
+body.trivia-section .sidebar-left a:hover {
+    color: #3f5efb;
+}
+
 .content {
     grid-area: content;
     background: rgba(255, 255, 255, 0.95);
@@ -133,6 +205,16 @@ body {
     margin-bottom: 1.5rem;
     color: #764ba2;
     font-size: 2rem;
+    transition: color 0.3s ease;
+}
+
+
+body.portfolio-section .content h2 {
+    color: #11998e;
+}
+
+body.trivia-section .content h2 {
+    color: #fc466b;
 }
 
 .content p {
@@ -161,10 +243,25 @@ body {
     background: linear-gradient(45deg, #667eea, #764ba2);
     color: white;
     font-weight: 600;
+    transition: background 0.3s ease;
+}
+
+
+body.portfolio-section .portfolio-table th {
+    background: linear-gradient(45deg, #11998e, #38ef7d);
 }
 
 .portfolio-table tr:hover {
     background-color: #f8f9ff;
+}
+
+
+body.portfolio-section .portfolio-table tr:hover {
+    background-color: #f0fffe;
+}
+
+body.trivia-section .portfolio-table tr:hover {
+    background-color: #fff0f5;
 }
 
 .trivia-container {
@@ -202,6 +299,17 @@ body {
     border-color: #667eea;
 }
 
+
+body.portfolio-section .input-group input:focus,
+body.portfolio-section .input-group select:focus {
+    border-color: #11998e;
+}
+
+body.trivia-section .input-group input:focus,
+body.trivia-section .input-group select:focus {
+    border-color: #fc466b;
+}
+
 .btn {
     padding: 0.75rem 1.5rem;
     border: none;
@@ -222,6 +330,23 @@ body {
 .btn-primary:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+
+body.portfolio-section .btn-primary {
+    background: linear-gradient(45deg, #11998e, #38ef7d);
+}
+
+body.portfolio-section .btn-primary:hover {
+    box-shadow: 0 4px 12px rgba(17, 153, 142, 0.3);
+}
+
+body.trivia-section .btn-primary {
+    background: linear-gradient(45deg, #fc466b, #3f5efb);
+}
+
+body.trivia-section .btn-primary:hover {
+    box-shadow: 0 4px 12px rgba(252, 70, 107, 0.3);
 }
 
 .btn-secondary {
@@ -256,6 +381,26 @@ body {
 .result h3 {
     color: #764ba2;
     margin-bottom: 1rem;
+    transition: color 0.3s ease;
+}
+
+
+body.portfolio-section .result {
+    background: linear-gradient(135deg, #f0fffe 0%, #e0fdf9 100%);
+    border-left-color: #11998e;
+}
+
+body.portfolio-section .result h3 {
+    color: #11998e;
+}
+
+body.trivia-section .result {
+    background: linear-gradient(135deg, #fff0f5 0%, #fde0e9 100%);
+    border-left-color: #fc466b;
+}
+
+body.trivia-section .result h3 {
+    color: #fc466b;
 }
 
 .result p {
@@ -290,6 +435,17 @@ body {
     border-color: #667eea;
 }
 
+
+body.portfolio-section .form-group input:focus,
+body.portfolio-section .form-group textarea:focus {
+    border-color: #11998e;
+}
+
+body.trivia-section .form-group input:focus,
+body.trivia-section .form-group textarea:focus {
+    border-color: #fc466b;
+}
+
 .form-group textarea {
     height: 100px;
     resize: vertical;
@@ -320,7 +476,24 @@ body {
     color: #764ba2;
 }
 
-/* Success message styling */
+
+body.portfolio-section .footer a {
+    color: #11998e;
+}
+
+body.portfolio-section .footer a:hover {
+    color: #38ef7d;
+}
+
+body.trivia-section .footer a {
+    color: #fc466b;
+}
+
+body.trivia-section .footer a:hover {
+    color: #3f5efb;
+}
+
+
 .success-message {
     background: #d4edda;
     color: #155724;
