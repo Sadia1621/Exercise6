@@ -101,29 +101,58 @@
                 </table>
             </div>
            
-             <div id="trivia-page" style="display: none;">
-                <h2>BMI Calculator</h2>
-                <p>Power your Day. Calculate your Body Mass Index and discover what category you fall into!</p>
+               <div id="trivia-page" style="display: none;">
+                <h2>Daily Calorie Needs Calculator</h2>
+                <p>Calculate your daily caloric needs based on your personal information and activity level!</p>
                 
                 <div class="trivia-container">
                     <div class="input-group">
+                        <label for="age">Age (years):</label>
+                        <input type="number" id="age" placeholder="Enter your age" min="1" max="120">
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="gender">Gender:</label>
+                        <select id="gender">
+                            <option value="">Select gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                    </div>
+                    
+                    <div class="input-group">
                         <label for="height">Height (cm):</label>
-                        <input type="number" id="height" placeholder="Enter your height in cm">
+                        <input type="number" id="height" placeholder="Enter your height in cm" min="50" max="250">
                     </div>
                     
                     <div class="input-group">
                         <label for="weight">Weight (kg):</label>
-                        <input type="number" id="weight" placeholder="Enter your weight in kg">
+                        <input type="number" id="weight" placeholder="Enter your weight in kg" min="20" max="300">
                     </div>
                     
-                    <button class="btn btn-primary" onclick="calculateBMI()">Calculate BMI</button>
-                    <button class="btn btn-secondary" onclick="clearBMI()">Clear</button>
+                    <div class="input-group">
+                        <label for="activity">Activity Level:</label>
+                        <select id="activity">
+                            <option value="">Select activity level</option>
+                            <option value="1.2">Sedentary (little/no exercise)</option>
+                            <option value="1.375">Light activity (light exercise 1-3 days/week)</option>
+                            <option value="1.55">Moderate activity (moderate exercise 3-5 days/week)</option>
+                            <option value="1.725">Very active (hard exercise 6-7 days/week)</option>
+                            <option value="1.9">Extremely active (very hard exercise, physical job)</option>
+                        </select>
+                    </div>
                     
-                    <div id="bmi-result" class="result">
-                        <h3>Your BMI Result:</h3>
-                        <p id="bmi-value"></p>
-                        <p id="bmi-category"></p>
-                        <p id="bmi-description"></p>
+                    <button class="btn btn-primary" onclick="calculateCalories()">Calculate Daily Calories</button>
+                    <button class="btn btn-secondary" onclick="clearCalories()">Clear</button>
+                    
+                    <div id="calorie-result" class="result">
+                        <h3>Your Daily Calorie Needs:</h3>
+                        <div id="result-content">
+                            <p id="bmr-value"></p>
+                            <p id="maintenance-calories"></p>
+                            <p id="weight-goals"></p>
+                            <p id="calorie-description"></p>
+                        </div>
                     </div>
                 </div>
             </div>
