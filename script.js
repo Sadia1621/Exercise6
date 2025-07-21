@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', function() {
     console.log('Page loaded, initializing navigation...');
     
@@ -10,52 +9,78 @@ document.addEventListener('DOMContentLoaded', function() {
     const portfolioPage = document.getElementById('portfolio-page');
     const triviaPage = document.getElementById('trivia-page');
     
-    function showPage(pageToShow, activeLink) {
+
+    function switchBackgroundTheme(sectionName) {
+        console.log('Switching background theme to:', sectionName);
+
+        document.body.classList.remove('portfolio-section', 'trivia-section');
+        
+
+        if (sectionName === 'portfolio') {
+            document.body.classList.add('portfolio-section');
+        } else if (sectionName === 'trivia') {
+            document.body.classList.add('trivia-section');
+        }
+   
+    }
+    
+    function showPage(pageToShow, activeLink, sectionName) {
         console.log('Switching to page:', pageToShow.id);
         
+
         homePage.style.display = 'none';
         portfolioPage.style.display = 'none';
         triviaPage.style.display = 'none';
         
+
         homeLink.classList.remove('active');
         portfolioLink.classList.remove('active');
         triviaLink.classList.remove('active');
         
+
         pageToShow.style.display = 'block';
         activeLink.classList.add('active');
+        
+        
+        switchBackgroundTheme(sectionName);
     }
     
     homeLink.addEventListener('click', function(e) {
         e.preventDefault();
-        showPage(homePage, homeLink);
+        showPage(homePage, homeLink, 'home');
     });
     
     portfolioLink.addEventListener('click', function(e) {
         e.preventDefault();
-        showPage(portfolioPage, portfolioLink);
+        showPage(portfolioPage, portfolioLink, 'portfolio');
     });
     
     triviaLink.addEventListener('click', function(e) {
         e.preventDefault();
-        showPage(triviaPage, triviaLink);
+        showPage(triviaPage, triviaLink, 'trivia');
     });
     
+   
+    showPage(homePage, homeLink, 'home');
+    
     const contactForm = document.getElementById('contact-form');
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        console.log('Form submitted');
-        
-        const name = document.getElementById('name').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const message = document.getElementById('message').value.trim();
-        
-        if (name && email && message) {
-            alert(`Thank you, ${name}! Your message has been received. I'll get back to you at ${email} soon!`);
-            clearForm();
-        } else {
-            alert('Please fill in all fields!');
-        }
-    });
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            console.log('Form submitted');
+            
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+            
+            if (name && email && message) {
+                alert(`Thank you, ${name}! Your message has been received. I'll get back to you at ${email} soon!`);
+                clearForm();
+            } else {
+                alert('Please fill in all fields!');
+            }
+        });
+    }
 });
 
 function calculateCalories() {
